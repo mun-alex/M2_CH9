@@ -1,0 +1,12 @@
+body {
+    background-color: slategrey;
+    margin-top: 10px;
+}
+
+.bg-azure {
+    background-color: azure;
+}
+
+.bg-white {
+    background-color: white;
+}
