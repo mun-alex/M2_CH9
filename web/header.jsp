@@ -7,7 +7,7 @@
     %>
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Все блоги</a>
+            <a class="nav-link text-dark" href="/main">Все блоги</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#addNewBlog">Добавить блог</a>

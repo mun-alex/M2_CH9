@@ -25,22 +25,28 @@
                 for (Blog blog : blogs) {
             %>
             <div class="blog-item bg-white p-3 mb-3">
-                <h3><%=blog.getTitle()%></h3>
-                <p><%=blog.getContent()%></p>
-                <p class="fw-bold">автор: <%=DBManager.authorNameByBlogId(blog.getId())%></p>
-                <a href="/comments?blogId=<%=blog.getId()%>">Комментарии</a>
-                <%
-                    if (request.getAttribute("comments") != null) {
-                        ArrayList<Comment> comments = (ArrayList<Comment>) request.getAttribute("comments");
-                        for (Comment comment : comments) {
-                            if (blog.getId() == comment.getBlogId()) {
-                %>
-                <p><%=comment.getComment()%></p>
-                <%
-                    }
-                    }
-                    }
-                %>
+                <h3><%=blog.getTitle()%>
+                </h3>
+                <p><%=blog.getContent()%>
+                </p>
+                <p class="fw-bold">автор: <%=DBManager.authorNameByBlogId(blog.getId())%>
+                </p>
+<%--                <a href="/comments?blogId=<%=blog.getId()%>">Комментарии</a>--%>
+                <a id="getCommentsButton" href="javascript:void(0)" onclick="getAllCommentsByBlogId(<%=blog.getId()%>)">Комментарии</a>
+
+<%--                <%--%>
+<%--                    if (request.getAttribute("comments") != null) {--%>
+<%--                        ArrayList<Comment> comments = (ArrayList<Comment>) request.getAttribute("comments");--%>
+<%--                        for (Comment comment : comments) {--%>
+<%--                            if (blog.getId() == comment.getBlogId()) {--%>
+<%--                %>--%>
+<%--                <p><%=comment.getComment()%>--%>
+<%--                </p>--%>
+<%--                <%--%>
+<%--                            }--%>
+<%--                        }--%>
+<%--                    }--%>
+<%--                %>--%>
             </div>
             <%
                 }
@@ -51,7 +57,8 @@
                 for (Blog blog : blogs) {
             %>
             <div class="blog-item bg-white p-3">
-                <h5><a href="" class="nav-link text-dark"><%=blog.getTitle()%></a></h5>
+                <h6><a href="" class="text-decoration-none text-dark"><%=blog.getTitle()%>
+                </a></h6>
                 <p class="fw-bold">автор: <%=DBManager.authorNameByBlogId(blog.getId())%>
                 </p>
             </div>

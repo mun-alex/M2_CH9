@@ -5,5 +5,6 @@
     <script src="tinymce/tinymce.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <script>tinymce.init({selector:'textarea'});</script>
+    <script src="js/index.js"></script>
     <title>BLOG</title>
 </head>

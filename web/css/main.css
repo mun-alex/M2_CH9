@@ -10,3 +10,11 @@ body {
 .bg-white {
     background-color: white;
 }
+
+.bg-khaki {
+    background-color: khaki;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
