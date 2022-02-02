@@ -120,4 +120,22 @@ public class DBManager {
         }
         return comments;
     }
+
+    public static List<Blog> getBlogsByKeyWord(String keyWord) {
+        List<Blog> blogList = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from blogs where title like '%" + keyWord + "%' order by id desc ");
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                Long id = result.getLong("id");
+                String title = result.getString("title");
+                String content = result.getString("content");
+                Long authorId = result.getLong("author_id");
+                blogList.add(new Blog(id, title, content, authorId));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return blogList;
+    }
 }

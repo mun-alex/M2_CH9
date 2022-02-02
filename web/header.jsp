@@ -1,14 +1,22 @@
 <%@ page import="kz.mun.m2.model.Author" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header class="bg-white mb-3 p-2">
-    <%
-        Author currentAuthor = (Author) session.getAttribute("CURRENT_AUTHOR");
-        if (currentAuthor != null) {
-    %>
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link text-dark" href="/main">Все блоги</a>
         </li>
+        <li>
+            <form action="/main" method="post" class="d-flex">
+                <input type="search" name="keyWord" class="form-control me-2" placeholder="search">
+<%--                <a href="/main?search" class="btn btn-secondary">Поиск</a>--%>
+                <button type="submit" class="btn btn-secondary">Поиск</button>
+            </form>
+
+        </li>
+        <%
+            Author currentAuthor = (Author) session.getAttribute("CURRENT_AUTHOR");
+            if (currentAuthor != null) {
+        %>
         <li class="nav-item">
             <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#addNewBlog">Добавить блог</a>
         </li>
@@ -20,21 +28,18 @@
                 <a class="nav-link text-dark" href="/logout">Выйти</a>
             </li>
         </div>
-    </ul>
-    <%
+        <%
         } else {
-    %>
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="/main">Все блоги</a>
+        %>
         </li>
         <li class="nav-item ms-auto">
             <a class="nav-link text-dark" href="/login">Войти</a>
         </li>
+        <%
+            }
+        %>
     </ul>
-    <%
-        }
-    %>
+
 </header>
 
 <!-- Modal add new Blog -->
